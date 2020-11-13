@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dGA-cD-PEg">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Shopping List Table View Controller-->
+        <scene sceneID="sEf-Co-d3O">
+            <objects>
+                <tableViewController id="dGA-cD-PEg" customClass="ShoppingListTableViewController" customModule="ShoppingList" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="YCi-t2-IRq">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <navigationBar key="tableHeaderView" contentMode="scaleToFill" id="UfZ-IP-F4A">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <items>
+                                <navigationItem title="Shopping List" id="PV0-Cs-CSV">
+                                    <barButtonItem key="rightBarButtonItem" systemItem="add" id="SJe-cW-NkI">
+                                        <connections>
+                                            <action selector="addItemButtonTapped:" destination="dGA-cD-PEg" id="adW-es-a3C"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </navigationItem>
+                            </items>
+                        </navigationBar>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="shoppingCell" rowHeight="85" id="5Tb-mN-LxJ" customClass="ShoppingListTableViewCell" customModule="ShoppingList" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="72" width="414" height="85"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5Tb-mN-LxJ" id="mcf-2j-4x0">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="85"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MnB-3O-AbT">
+                                            <rect key="frame" x="27" y="7" width="248.5" height="71"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nrB-TT-yKq">
+                                            <rect key="frame" x="334" y="7" width="46" height="71"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="nrB-TT-yKq" secondAttribute="height" multiplier="1:1" id="prg-2v-o2z"/>
+                                            </constraints>
+                                            <connections>
+                                                <action selector="isPurchasedButtonTapped:" destination="5Tb-mN-LxJ" eventType="touchUpInside" id="TiU-yS-VrK"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="MnB-3O-AbT" firstAttribute="centerY" secondItem="mcf-2j-4x0" secondAttribute="centerY" id="2bA-tR-tM8"/>
+                                        <constraint firstItem="nrB-TT-yKq" firstAttribute="centerY" secondItem="mcf-2j-4x0" secondAttribute="centerY" id="FYl-YC-z4B"/>
+                                        <constraint firstItem="nrB-TT-yKq" firstAttribute="leading" secondItem="MnB-3O-AbT" secondAttribute="trailing" constant="58.5" id="R6B-Uy-oPN"/>
+                                        <constraint firstAttribute="bottom" secondItem="nrB-TT-yKq" secondAttribute="bottom" constant="7" id="RHp-Qu-o8V"/>
+                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="MnB-3O-AbT" secondAttribute="trailing" constant="20" symbolic="YES" id="TyG-Ql-vXF"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="nrB-TT-yKq" secondAttribute="trailing" constant="14" id="aH9-Kn-A8D"/>
+                                        <constraint firstAttribute="bottom" secondItem="MnB-3O-AbT" secondAttribute="bottom" constant="7" id="gZJ-dT-HKx"/>
+                                        <constraint firstItem="MnB-3O-AbT" firstAttribute="width" secondItem="mcf-2j-4x0" secondAttribute="width" multiplier="0.6" id="hpD-YC-JyJ"/>
+                                        <constraint firstItem="MnB-3O-AbT" firstAttribute="top" secondItem="mcf-2j-4x0" secondAttribute="top" constant="7" id="jKj-xs-sjZ"/>
+                                        <constraint firstItem="MnB-3O-AbT" firstAttribute="leading" secondItem="mcf-2j-4x0" secondAttribute="leadingMargin" constant="7" id="kPB-a4-JLJ"/>
+                                        <constraint firstItem="nrB-TT-yKq" firstAttribute="top" secondItem="mcf-2j-4x0" secondAttribute="top" constant="7" id="usV-DL-Va1"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="isPurchasedButton" destination="nrB-TT-yKq" id="2l5-p2-5WR"/>
+                                    <outlet property="itemNameLabel" destination="MnB-3O-AbT" id="fmB-RS-xiD"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="dGA-cD-PEg" id="3yI-xf-00X"/>
+                            <outlet property="delegate" destination="dGA-cD-PEg" id="mEr-i7-4ch"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lkX-0h-zbe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-891" y="-222"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
