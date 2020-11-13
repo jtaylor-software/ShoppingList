@@ -81,18 +81,6 @@ class ShoppingListTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return view.bounds.height / 7
     }
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
-    
 }
 
 extension ShoppingListTableViewController: UISearchBarDelegate {
@@ -113,7 +101,7 @@ extension ShoppingListTableViewController: UISearchBarDelegate {
     func performFetch() {
         do {
             try ShoppingController.shared.fetchedResultsController.performFetch()
-            tableView.reloadData() // This works but why doesn't the FRC delegate do this???
+            tableView.reloadData()
         } catch {
             print(error)
             print(error.localizedDescription)
