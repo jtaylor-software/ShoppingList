@@ -10,9 +10,11 @@ import CoreData
 
 class ShoppingListTableViewController: UITableViewController {
     
+    @IBOutlet weak var searchBar: UISearchBar!
     override func viewDidLoad() {
         super.viewDidLoad()
         ShoppingController.shared.fetchedResultsController.delegate = self
+        searchBar.delegate = self
     }
     
     @IBAction func addItemButtonTapped(_ sender: Any) {
@@ -89,8 +91,34 @@ class ShoppingListTableViewController: UITableViewController {
      // Pass the selected object to the new view controller.
      }
      */
- 
     
+    
+}
+
+extension ShoppingListTableViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        let predicate = NSPredicate(format: "%K CONTAINS[c] %@", argumentArray: ["name", searchText])
+        ShoppingController.shared.fetchedResultsController.fetchRequest.predicate = predicate
+        
+        performFetch()
+        
+        
+        if searchText.isEmpty {
+            ShoppingController.shared.fetchedResultsController.fetchRequest.predicate = nil
+            performFetch()
+        }
+    }
+    
+    func performFetch() {
+        do {
+            try ShoppingController.shared.fetchedResultsController.performFetch()
+            tableView.reloadData() // This works but why doesn't the FRC delegate do this???
+        } catch {
+            print(error)
+            print(error.localizedDescription)
+        }
+    }
 }
 
 extension ShoppingListTableViewController: ShoppingListCellDelegate {
